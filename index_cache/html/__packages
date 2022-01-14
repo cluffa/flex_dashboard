@@ -1,15 +1,5 @@
-base
-methods
-datasets
-utils
-grDevices
-graphics
-stats
-flexdashboard
-ggplot2
-plotly
-reactable
 tidyverse
+ggplot2
 tibble
 tidyr
 readr
@@ -17,3 +7,6 @@ purrr
 dplyr
 stringr
 forcats
+flexdashboard
+plotly
+reactable

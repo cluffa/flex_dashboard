@@ -6,11 +6,12 @@ output:
     vertical_layout: fill
 ---
 
-```{r setup, include=FALSE, cache=TRUE, cache.comments=FALSE}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
+library(tidyverse)
 library(flexdashboard)
 library(plotly)
 library(reactable)
-library(tidyverse)
 data("diamonds")
 ```
 
@@ -24,7 +25,8 @@ p <- diamonds %>%
   ggplot(aes(carat, price, color = cut)) +
     geom_point()
 
-ggplotly(p)
+#ggplotly(p)
+p
 ```
 
 Column {data-width=350}
@@ -33,11 +35,9 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-p <- diamonds %>% 
+diamonds %>% 
   ggplot(aes(color, fill = color)) +
     geom_bar()
-
-ggplotly(p)
 ```
 
 ### Chart C
