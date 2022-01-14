@@ -1,13 +1,17 @@
 ---
-title: "Untitled"
+title: "test dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, cache=TRUE, cache.comments=FALSE}
 library(flexdashboard)
+library(plotly)
+library(reactable)
+library(tidyverse)
+data("diamonds")
 ```
 
 Column {data-width=650}
@@ -16,7 +20,11 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
+p <- diamonds %>% 
+  ggplot(aes(carat, price, color = cut)) +
+    geom_point()
 
+ggplotly(p)
 ```
 
 Column {data-width=350}
@@ -25,12 +33,19 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
+p <- diamonds %>% 
+  ggplot(aes(color, fill = color)) +
+    geom_bar()
 
+ggplotly(p)
 ```
 
 ### Chart C
 
 ```{r}
-
+diamonds %>% 
+  select(-x, -y, -z) %>% 
+  arrange(desc(price)) %>% 
+  reactable()
 ```
 
