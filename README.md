@@ -1,4 +1,4 @@
 # https://cluffa.github.io/flex_dashboard/
-R flex dashboard
+R flex dashboard template
 
 
